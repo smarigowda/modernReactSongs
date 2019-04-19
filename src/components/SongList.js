@@ -1,24 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { selectSong } from '../actions'; 
+import { container } from './SongList.module.scss';
 
-const SongList = ({ songs }) => {
+const SongList = ({ songs, selectSong }) => {
     return (
-        <div>
-            <h2>Songs List</h2>
+        <div className={container}>
             {
                 songs.map(d =>
-                    <div>
-                        <p>{d.title}</p><button>SELECT</button>
+                    <div key={d.title}>
+                        <p>{d.title}</p>
+                        <button onClick={() => selectSong(d.title) }>Select</button>
                     </div>)
             }
         </div>
     )
 };
 
-const mapStateToProps = state => {
+const msp = state => {
+    console.log(state);
     return {
         songs: state.songs
     }
 };
 
-export default connect(mapStateToProps)(SongList);
+const mdp = dispatch => {
+    return {
+        selectSong: title => dispatch(selectSong(title))
+    }
+}
+
+export default connect(msp, mdp)(SongList);

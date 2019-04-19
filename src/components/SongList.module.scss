@@ -1,0 +1,18 @@
+.container {
+    padding: 0 calc(50% - 250px);
+    display: grid;
+    justify-content: center;
+    max-width: 90%;
+
+    & button {
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        background-color: blue;
+        color: white;
+        border-radius: 5px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
