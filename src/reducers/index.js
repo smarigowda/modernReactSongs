@@ -1,4 +1,6 @@
-export const songsList = () => {
+import { combineReducers } from 'redux';
+
+export const songs = () => {
     return [
         {
             title: 'Naaku Tanti',
@@ -22,10 +24,14 @@ export const songsList = () => {
         }
     ]
 }
-export const selectedSong = (selectedSong = null, action) => {
+export const selectedSong = (state = null, action) => {
     switch(action.type) {
         case 'SELECT_SONG':
             return action.payload;
     }
-    return selectedSong;
+    return state;
 }
+export default combineReducers({
+    songs,
+    selectedSong
+});
