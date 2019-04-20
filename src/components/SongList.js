@@ -9,7 +9,7 @@ const SongList = ({ songs, selectSong }) => {
             {
                 songs.map(d =>
                     <div key={d.title}>
-                        <p>{d.title}</p>
+                        <h2>{d.title}</h2>
                         <button onClick={() => selectSong(d.title) }>Select</button>
                     </div>)
             }

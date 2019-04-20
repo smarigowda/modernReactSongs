@@ -1,15 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { songDetailsContainer } from './SongDetails.module.scss';
+
 const SongDetail = ({ songDetails }) => {
     console.log(songDetails);
     return (
-        <div>
+        <div className={songDetailsContainer}>
             {songDetails.length === 0 ? <h1>Select A Song...</h1> : ''}
 
             {
                 songDetails.map(song => {
-                    return (<><p>{song.title}</p><p>{song.duration}</p></>)
+                    return (<><h1>{song.title}</h1><p>{song.duration}</p></>)
                 })
             }
         </div>
