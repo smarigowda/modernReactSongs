@@ -10,6 +10,7 @@ const SongList = ({ songs, selectSong }) => {
                 songs.map(d =>
                     <div key={d.title}>
                         <p>{d.title}</p>
+                        {/* <button onClick={() => selectSong(d.title) }>Select</button> */}
                         <button onClick={() => selectSong(d.title) }>Select</button>
                     </div>)
             }
@@ -30,4 +31,4 @@ const mdp = dispatch => {
     }
 }
 
-export default connect(msp, mdp)(SongList);
+export default connect(msp, { selectSong })(SongList);
